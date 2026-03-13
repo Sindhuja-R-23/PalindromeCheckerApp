@@ -1,22 +1,18 @@
-interface PalindromeStrategy {
-    boolean check(String str);
-}
-
-class ReverseStrategy implements PalindromeStrategy {
-
-    public boolean check(String str) {
-
-        String rev = new StringBuilder(str).reverse().toString();
-        return str.equals(rev);
-    }
-}
-
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        PalindromeStrategy strategy = new ReverseStrategy();
+        String word = "madam";
 
-        System.out.println(strategy.check("level"));
+        long start = System.nanoTime();
+
+        String rev = new StringBuilder(word).reverse().toString();
+
+        boolean result = word.equals(rev);
+
+        long end = System.nanoTime();
+
+        System.out.println(result ? "Palindrome" : "Not Palindrome");
+        System.out.println("Execution Time: " + (end-start));
     }
 }
