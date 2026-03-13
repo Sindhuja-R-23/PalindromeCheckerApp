@@ -1,16 +1,18 @@
+class PalindromeService {
+
+    boolean checkPalindrome(String word) {
+
+        String reverse = new StringBuilder(word).reverse().toString();
+        return word.equals(reverse);
+    }
+}
+
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String str = "Never Odd Or Even";
+        PalindromeService service = new PalindromeService();
 
-        str = str.replaceAll("\\s","").toLowerCase();
-
-        String reverse = new StringBuilder(str).reverse().toString();
-
-        if(str.equals(reverse))
-            System.out.println("Palindrome");
-        else
-            System.out.println("Not Palindrome");
+        System.out.println(service.checkPalindrome("madam"));
     }
 }
