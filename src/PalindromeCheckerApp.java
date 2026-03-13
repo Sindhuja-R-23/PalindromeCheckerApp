@@ -4,21 +4,19 @@ public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String word = "level";
+        String word = "radar";
 
-        Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> deque = new LinkedList<>();
 
         for(char c : word.toCharArray()) {
-            queue.add(c);
-            stack.push(c);
+            deque.add(c);
         }
 
         boolean palindrome = true;
 
-        while(!queue.isEmpty()) {
+        while(deque.size() > 1) {
 
-            if(queue.remove() != stack.pop()) {
+            if(deque.removeFirst() != deque.removeLast()) {
                 palindrome = false;
                 break;
             }
