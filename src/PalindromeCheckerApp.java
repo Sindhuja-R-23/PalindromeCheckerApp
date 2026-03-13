@@ -1,30 +1,26 @@
-import java.util.*;
+import java.util.LinkedList;
 
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String word = "radar";
+        String word = "level";
 
-        Deque<Character> deque = new LinkedList<>();
+        LinkedList<Character> list = new LinkedList<>();
 
-        for(char c : word.toCharArray()) {
-            deque.add(c);
-        }
+        for(char c : word.toCharArray())
+            list.add(c);
 
         boolean palindrome = true;
 
-        while(deque.size() > 1) {
+        while(list.size() > 1) {
 
-            if(deque.removeFirst() != deque.removeLast()) {
+            if(list.removeFirst() != list.removeLast()) {
                 palindrome = false;
                 break;
             }
         }
 
-        if(palindrome)
-            System.out.println("Palindrome");
-        else
-            System.out.println("Not Palindrome");
+        System.out.println(palindrome ? "Palindrome" : "Not Palindrome");
     }
 }
